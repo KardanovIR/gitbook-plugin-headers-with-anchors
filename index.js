@@ -47,7 +47,6 @@ function addAnchorsToHeaders(raw) {
 function page(page) {
     page.content = addAnchorsToHeaders(page.content);
 
-    page.content = page.content.replace(/<(\\?)h1>/g, '<$1h3>');
     return page;
 }
 
