@@ -22,7 +22,7 @@ function addAnchorToHeader(raw) {
               replace(new RegExp(REXP_HEADER_BEG), TEXT_HEADER_BEG).
               replace(new RegExp(REXP_HEADER_END), TEXT_HEADER_END).
               replace(/\{\{\s*id\s*\}\}/g, id);
-
+console.log(out);
     return out;
 }
 
@@ -35,7 +35,7 @@ function addAnchorsToHeaders(raw) {
     if (!(headers instanceof Array) || !headers.length) {
         return raw;
     }
-console.log('IM HERE!')
+
     // Replace
     headers.forEach((header) => {
         raw = raw.replace(header, addAnchorToHeader(header));
