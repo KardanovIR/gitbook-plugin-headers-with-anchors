@@ -3,27 +3,32 @@ function testTag1(block) {
 }
 
 const
-    HEADER_BEG = '<h[1-6] id="([^"]+)">',
-    HEADER_END = '<\\/h[1-6]>',
-    HEADER_INNER = '[^>]+';
+    TEXT_HEADER_BEG = '<h$1 id="$2"><a id="#anchor-{{ id }}" href="#anchor-{{ id }}">',
+    TEXT_HEADER_END = '</a></h$1>',
+    REXP_HEADER_BEG = '<h([1-6]) id="([^"]+)">',
+    REXP_HEADER_END = '<\\/h([1-6])>',
+    REXP_HEADER_INNER = '[^>]+';
 
 function addAnchorToHeader(raw) {
     var
+        n = raw.
+             replace(new RegExp(REXP_HEADER_BEG + REXP_HEADER_INNER + REXP_HEADER_END), '$1'),
         id = raw.
-             replace(new RegExp(HEADER_BEG + HEADER_INNER + HEADER_END), '$1'),
+             replace(new RegExp(REXP_HEADER_BEG + REXP_HEADER_INNER + REXP_HEADER_END), '$2').
+             replace(/[()]/g, '-').
+             replace(/-+/g, '-').
+             toLowerCase(),
         out = raw.
-              replace(new RegExp(HEADER_BEG), '').
-              replace(new RegExp(HEADER_END), '');
-
-    out = id;
+              replace(new RegExp(REXP_HEADER_BEG), TEXT_HEADER_BEG).
+              replace(new RegExp(REXP_HEADER_END), TEXT_HEADER_END).
+              replace(/\{\{\s*id\s*\}\}/g, id);
 
     return out;
 }
 
 function addAnchorsToHeaders(content) {
-
     var
-        rexp = new RegExp(HEADER_BEG + HEADER_INNER + HEADER_END, 'g'),
+        rexp = new RegExp(REXP_HEADER_BEG + REXP_HEADER_INNER + REXP_HEADER_END, 'g'),
         headers = content.match(rexp);
 
     // No need to go further
@@ -33,7 +38,7 @@ function addAnchorsToHeaders(content) {
 
     // Replace
     headers.forEach((header) => {
-        content = content.replace(header, addAnchorsToHeaders(header));
+        content = content.replace(header, addAnchorToHeader(header));
     });
 
     return content;
@@ -51,6 +56,6 @@ module.exports = {
         testTag1
     },
     hooks: {
-//         page
+        page
     }
 };
