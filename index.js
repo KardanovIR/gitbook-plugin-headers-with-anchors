@@ -51,6 +51,6 @@ module.exports = {
         testTag1
     },
     hooks: {
-        page
+//         page
     }
 };
