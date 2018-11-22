@@ -35,7 +35,7 @@ function addAnchorsToHeaders(raw) {
     if (!(headers instanceof Array) || !headers.length) {
         return raw;
     }
-
+console.log('IM HERE!')
     // Replace
     headers.forEach((header) => {
         raw = raw.replace(header, addAnchorToHeader(header));
