@@ -1,5 +1,5 @@
 function testTag1(block) {
-    'TESTTESTTEST' + block.body + 'TESTTESTTEST';
+    return 'TESTTESTTEST' + block.body + 'TESTTESTTEST';
 }
 
 module.exports = {
