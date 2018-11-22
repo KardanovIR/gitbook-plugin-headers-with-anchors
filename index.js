@@ -33,7 +33,7 @@ function addAnchorsToHeaders(raw) {
 
     // No need to go further
     if (!(headers instanceof Array) || !headers.length) {
-        return;
+        return raw;
     }
 
     // Replace
