@@ -3,7 +3,7 @@ function testTag1(block) {
 }
 
 function hookForPage(page) {
-    data.content = 'TESTTESTTEST' + data.content + 'TESTTESTTEST';
+    page.content = page.content.replace(/<(\\?)h1>/, '<$1h3>');
 }
 
 module.exports = {
