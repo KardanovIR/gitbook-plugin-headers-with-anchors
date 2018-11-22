@@ -22,7 +22,7 @@ function addAnchorToHeader(raw) {
               replace(new RegExp(REXP_HEADER_BEG), TEXT_HEADER_BEG).
               replace(new RegExp(REXP_HEADER_END), TEXT_HEADER_END).
               replace(/\{\{\s*id\s*\}\}/g, id);
-console.log(out);
+
     return out;
 }
 
@@ -46,6 +46,8 @@ function addAnchorsToHeaders(raw) {
 
 function page(page) {
     page.content = addAnchorsToHeaders(page.content);
+
+console.log(page.content);
 
     return page;
 }
