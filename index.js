@@ -26,10 +26,10 @@ function addAnchorToHeader(raw) {
     return out;
 }
 
-function addAnchorsToHeaders(content) {
+function addAnchorsToHeaders(raw) {
     var
         rexp = new RegExp(REXP_HEADER_BEG + REXP_HEADER_INNER + REXP_HEADER_END, 'g'),
-        headers = content.match(rexp);
+        headers = raw.match(rexp);
 
     // No need to go further
     if (!(headers instanceof Array) || !headers.length) {
@@ -38,10 +38,10 @@ function addAnchorsToHeaders(content) {
 
     // Replace
     headers.forEach((header) => {
-        content = content.replace(header, addAnchorToHeader(header));
+        raw = raw.replace(header, addAnchorToHeader(header));
     });
 
-    return content;
+    return raw;
 }
 
 function page(page) {
