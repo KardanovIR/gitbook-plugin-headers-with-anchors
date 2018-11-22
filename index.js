@@ -3,7 +3,7 @@ function testTag1(block) {
 }
 
 function hookForPage(page) {
-    page.content = page.content.replace(/<(\\?)h1>/, '<$1h3>');
+    page.content = page.content.replace(/<(\\?)h1>/g, '<$1h3>');
     return page;
 }
 
