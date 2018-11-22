@@ -4,6 +4,7 @@ function testTag1(block) {
 
 function hookForPage(page) {
     page.content = page.content.replace(/<(\\?)h1>/, '<$1h3>');
+    return page;
 }
 
 module.exports = {
