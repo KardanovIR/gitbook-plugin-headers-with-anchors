@@ -75,8 +75,10 @@ function page(page) {
 
 
 module.exports = {
-    assets: './assets',
-    css: ['headers-with-anchors.css'],
+    book: {
+        assets: './assets',
+        css: ['headers-with-anchors.css'],
+    },
     hooks: {
         page
     },
