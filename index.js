@@ -1,3 +1,6 @@
+const
+    md5 = require('md5');
+
 /**
  * @const {string} TEXT_HEADER_BEG
  * @const {string} TEXT_HEADER_END
@@ -8,8 +11,8 @@
 const
     TEXT_HEADER_BEG = '<h$1$2><a ' +
                           'class="wd-go wd-go_for_header-anchor" ' +
-                          'id="#anchor-{{ id }}" ' +
-                          'href="#anchor-{{ id }}"' +
+                          'id="#section-{{ id }}" ' +
+                          'href="#section-{{ id }}"' +
                       '>',
     TEXT_HEADER_END = '</a></h$1>',
     REXP_HEADER_BEG = '<h([1-6])(\s+id="[^"]+")?>',
