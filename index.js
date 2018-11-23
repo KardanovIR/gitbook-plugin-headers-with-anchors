@@ -26,7 +26,7 @@ const
  */
 function addAnchorToHeader(raw) {
     var
-        id = encodeURIComponent(raw.
+        id = md5(raw.
              replace(new RegExp(REXP_HEADER_BEG + REXP_HEADER_INNER + REXP_HEADER_END), '$3').
              replace(/[\s()\[\]"'`.,:;?!#&]/g, '-').
              replace(/-+/g, '-').
