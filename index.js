@@ -11,7 +11,7 @@ const
 const
     TEXT_HEADER_BEG = '<h$1$2><a ' +
                           'class="wd-go wd-go_for_header-anchor" ' +
-                          'id="#section-{{ id }}" ' +
+                          'id="section-{{ id }}" ' +
                           'href="#section-{{ id }}"' +
                       '>',
     TEXT_HEADER_END = '</a></h$1>',
