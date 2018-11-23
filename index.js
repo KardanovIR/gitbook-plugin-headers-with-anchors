@@ -7,8 +7,8 @@
  */
 const
     TEXT_HEADER_BEG = '<h$1$2><a ' +
-                          'id="#anchor-{{ id }}" ' +
                           'class="wd-go wd-go_for_header-anchor" ' +
+                          'id="#anchor-{{ id }}" ' +
                           'href="#anchor-{{ id }}"' +
                       '>',
     TEXT_HEADER_END = '</a></h$1>',
