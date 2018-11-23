@@ -81,7 +81,7 @@ module.exports = {
     book: {
         assets: './assets',
         js: [],
-        css: ['headers-with-anchors.css']
+        css: ['headers-with-anchors.css?cacheBreaker=1']
     },
     hooks: {page}
 };
