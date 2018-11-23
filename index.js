@@ -76,7 +76,7 @@ function page(page) {
 
 module.exports = {
     assets: './assets',
-    css: ['index.css'],
+    css: ['headers-with-anchors.css'],
     hooks: {
         page
     },
