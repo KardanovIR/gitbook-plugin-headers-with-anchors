@@ -15,9 +15,9 @@ const
                           'href="#section-{{ id }}"' +
                       '>',
     TEXT_HEADER_END = '</a></h$1>',
-    REXP_HEADER_BEG = '<h([1-6])(\s+id="[^"]+")?>',
-    REXP_HEADER_END = '<\\/h([1-6])>',
-    REXP_HEADER_INNER = '([^>]+)';
+    REXP_HEADER_BEG = '<h([1-6])([^>]*)?>',
+    REXP_HEADER_END = '<\/h([1-6])>',
+    REXP_HEADER_INNER = '([^<]+)';
 
 /**
  * @function {addAnchorToHeader}
@@ -48,7 +48,7 @@ function addAnchorToHeader(raw) {
  */
 function addAnchorsToHeaders(raw) {
     var
-        rexp = new RegExp(REXP_HEADER_BEG + REXP_HEADER_INNER + REXP_HEADER_END, 'g'),
+        rexp = new RegExp(REXP_HEADER_BEG + REXP_HEADER_INNER + REXP_HEADER_END, 'gm'),
         headers = raw.match(rexp);
 
     // No need to go further
